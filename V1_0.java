@@ -7,27 +7,26 @@
  */
 public class V1_0
 {
-    // instance variables - replace the example below with your own
+    
     private int x;
+    int roundnumber =0;
+    int roundsplayed=1;
+    int roundsanswers []= new int [25];
 
     /**
      * Constructor for objects of class V1_0
      */
     public V1_0()
     {
-        // initialise instance variables
-        x = 0;
+        System.out.println("                    round"+roundnumber);
+        System.out.println("");
+        System.out.println("");
+        System.out.println("");
+        System.out.println("rounds min= 5 max= 25");
+        System.out.println("");
+        System.out.println("past"+roundsplayed+ "rounds");
+        System.out.println("");
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
+
 }
