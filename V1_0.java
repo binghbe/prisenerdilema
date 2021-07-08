@@ -24,7 +24,7 @@ public class V1_0
         System.out.println("");
         System.out.println("rounds min= 5 max= 25");
         System.out.println("");
-        System.out.println("past"+roundsplayed+ "rounds");
+        System.out.println("past "+roundsplayed+ " rounds");
         System.out.println("");
     }
 
