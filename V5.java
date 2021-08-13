@@ -1,4 +1,5 @@
 
+ 
 /**
  
 /**
@@ -29,7 +30,7 @@ public class V5{
     
      
 
-    /**
+   /**
      * Constructor for objects of class V5
      */
     public V5()
@@ -37,53 +38,71 @@ public class V5{
         boolean start = false;
         Scanner Keybaord = new Scanner(System.in);
         System.out.println('\u000c');
-        System.out.println("PRISONEIR'S DILEMMA");
-        System.out.println("    by bear");
+        System.out.println("              PRISONEIR'S DILEMMA");
+        System.out.println("                   by bear");
+        System.out.println("                    ROUNDS");
+        System.out.println("   rounds min= "+roundmin+"    max= "+roundmax);
+        System.out.println("for rule and setteing type 'menu'");
+        System.out.println("");
         System.out.println("");
         System.out.println("type 'start' to start");  
         String Command;
         Command=Keybaord.nextLine();
-        while(start==false){
+       while(start==false){
        
         if (Command.equals("start")){
             start = true;
+            
         } else {
            System.out.println('\u000c');
            System.out.println("type 'start' to start");
            Command=Keybaord.nextLine();
         }
+        
       }
       while (start == true ){
-        System.out.println('\u000c');
         
-        if (roundnumber<5&&playercop>playerdef){
+        
+        if (roundnumber<5){
             aimove=aioptin();
-            
         }
-        if (roundnumber>5&&playercop<playerdef){
+        if(roundnumber>5&&playercop<playerdef){
+            aimove=1;
            }
+        if (roundnumber>5&&playercop>playerdef){
+            aimove=0;
+          }
+        if (roundnumber>5&&playercop==playerdef){
+            aimove=1;
+          }
+        System.out.println("");
+        System.out.println("");
         System.out.println("                    ROUND "+roundnumber);
         System.out.println("               YOUR SCORE "+score);
         System.out.println("                 AI SCORE "+aiscore);
         System.out.println("");
-        System.out.println("");
-        System.out.println("rounds min= "+roundmin+"    max= "+roundmax);
-        System.out.println("");
-        System.out.println("past rounds");
+        System.out.println("last round");
         System.out.println(roundsanswers[roundnumber]);
-        System.out.println("");
         System.out.println("comand list:");
         System.out.println("    cop = cooperate");
         System.out.println("    def = defect");
         System.out.println("    end = end game");
-        System.out.println("    explain = explain the game and how its ment to work");
+
         System.out.println("");
-        System.out.println("                    DO COOPERATE OR DEFECT?");
-        System.out.println(aimove);
+        System.out.println("               DO COOPERATE OR DEFECT?");
         Command=Keybaord.nextLine();
         //def = 1 cop =0
+        boolean answerloop = false;
+        if (Command.equals("a")){
+           answerloop = true;
+           int x = 1; 
+           while (answerloop = true&&x<roundnumber){
+                
+                System.out.println(roundsanswers[x]);
+                x=x+1;
+           }
+        }
         if (Command.equals("def")&&aimove==0){
-            System.out.println("def");
             roundnumber=roundnumber+1;
             score=score+5;
             score=score-1;
@@ -92,7 +111,6 @@ public class V5{
             //u def and ai cop so u win
         }
         if (Command.equals("def")&&aimove==1){
-            System.out.println("def");
             roundnumber=roundnumber+1;
             score=score-1;
             aiscore=aiscore-1;
@@ -101,7 +119,6 @@ public class V5{
             //you both def so u tei
         }
         if (Command.equals("cop")&&aimove==0){
-            System.out.println("cop");
             roundnumber=roundnumber+1;
             score=score+3;
             aiscore=aiscore+3;
@@ -110,7 +127,6 @@ public class V5{
             // you both cop 
         }
         if (Command.equals("cop")&&aimove==1){
-            System.out.println("cop");
             roundnumber=roundnumber+1;
             score=score-1;
             aiscore=aiscore+5;
@@ -122,7 +138,7 @@ public class V5{
             start=false;
             System.out.println('\u000c');
             System.out.println("game over hope u enjoyed it");
-            System.out.println("rounds played "+roundnumber);
+            System.out.println("rounds played: "+roundnumber);
             System.out.println("you ended the game ");
         }
         if (endgame+5<roundnumber&&aiscore>score){
